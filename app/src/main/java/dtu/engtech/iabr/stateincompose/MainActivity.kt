@@ -1,13 +1,16 @@
 package dtu.engtech.iabr.stateincompose
 
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
 import dtu.engtech.iabr.stateincompose.ui.theme.StateInComposeTheme
+
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +23,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     EquipmentScreen()
+                    Navigation()
+
                 }
+
             }
         }
     }
@@ -32,5 +38,12 @@ class MainActivity : ComponentActivity() {
 fun DefaultPreview() {
     StateInComposeTheme {
         EquipmentScreen()
+        Navigation()
+
     }
 }
+
+
+
+
+

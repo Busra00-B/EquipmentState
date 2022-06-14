@@ -28,8 +28,8 @@ class EquipmentRepositoryFirestore: EquipmentRepository {
     }
 
     fun logEquipment(){
-        for(staffMember in equipment) {
-            Log.d(Constants.FIREBASETAG, "Member: $staffMember")
+        for(equipmentMember in equipment) {
+            Log.d(Constants.FIREBASETAG, "Member: $equipmentMember")
         }
     }
 }

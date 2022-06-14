@@ -18,9 +18,9 @@ fun EquipmentCardList(
     ) {
         items(
             items = list
-        ) { staff ->
+        ) { equipment ->
             EquipmentCard(
-                equipment = staff
+                equipment = equipment
             )
         }
     }

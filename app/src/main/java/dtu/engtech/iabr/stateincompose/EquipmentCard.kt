@@ -15,23 +15,29 @@ fun EquipmentCard(
     modifier: Modifier = Modifier
 ) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
-        Image(
-            painter = painterResource((R.drawable.dtulogo)),
-            contentDescription = "Staff profile picture",
+         Image(
+             painter = painterResource((R.drawable.bil)),
+            contentDescription = "Equipment",
             modifier = Modifier
                 .size(50.dp)
+
         )
+
         Spacer(modifier = Modifier.width(8.dp))
         Column() {
             Text(
-                text = equipment.name ?: ""
+                text = equipment?.name ?: ""
             )
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = equipment.location ?: "",
+                text = equipment?.location ?: "",
                 modifier = Modifier.padding(all = 4.dp),
                 style = MaterialTheme.typography.body2
             )
         }
     }
 }
+
+
+
+

@@ -51,7 +51,6 @@ fun DefaultPreview() {
     StateInComposeTheme {
         EquipmentScreen()
         Navigation()
-
     }
 }
 

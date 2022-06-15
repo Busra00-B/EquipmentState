@@ -19,6 +19,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.ui.graphics.Color
 
 
 @Composable
@@ -28,33 +29,15 @@ fun Navigation() {
         composable(route = Screen.MainScreen.route) {
             MainScreen(navController = navController)
         }
-        composable(
-            route = Screen.ValgteUdstyrScreen.route + "/{name}",
-            arguments = listOf(
-                navArgument("name") {
-                    type = NavType.StringType
-                    defaultValue = ""
-                    nullable = true
-                }
-            )
-        )
-        { entry ->
-            ValgteUdstyr(name = entry.arguments?.getString("name"))
 
+        composable("valgtudstyr") {
+            ValgteUdstyr(navController = navController)
         }
-        composable(
-            route = Screen.SessionScreen.route + "/{name}",
-            arguments = listOf(
-                navArgument("name") {
-                    type = NavType.StringType
-                    defaultValue = "Kimya"
-                    nullable = true
-                }
-            )
-        )
-        { entry ->
-            SessionScreen(name = entry.arguments?.getString("name"))
+
+        composable("session") {
+            SessionScreen(navController = navController)
         }
+
 
     }
 }
@@ -90,7 +73,7 @@ fun MainScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(8.dp))
         Button(
             onClick = {
-                navController.navigate(Screen.ValgteUdstyrScreen.withArgs(text))
+                navController.navigate("valgtudstyr")
             },
             modifier = Modifier.align(Alignment.End)
         ) {
@@ -102,26 +85,17 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun String?.ValgteUdstyr(navController: NavController) {
+fun ValgteUdstyr(navController: NavController) {
 
 
-    /*
-    Column(
-        /*contentAlignment = Alignment.Center,
-        
-         */
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Text(text = "", modifier = Modifier.size(40.dp))
+    Column(modifier = Modifier.fillMaxWidth()) {
+        //kode til valgte udstyr
 
-        //koden til valgteudstyr starter herfra
+        Row(modifier = Modifier.padding(all = 8.dp)) {
+            Text(text = "Valgte udstyr")
 
-        Column {
-            //kode til valgte udstyr
-            Row(modifier = Modifier.padding(all = 8.dp)) {
-                Text(text = "Valgte udstyr")
-            }
         }
+
         Column() {
             Row() {
 
@@ -152,7 +126,7 @@ fun String?.ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Button(onClick = { }) {
+                Button(onClick = { navController.navigate("session") }) {
                     Text(text = "SS3 i lokale 111")
                 }
             }
@@ -161,12 +135,15 @@ fun String?.ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Button(onClick = { }) {
-                    Text(text = "SS3 i lokale 101")
+                Button(
+                    onClick = { navController.navigate("session") }) {
+                    Text(text = "SS4 i lokale 109")
                 }
-
             }
         }
+
+
+
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
@@ -177,8 +154,9 @@ fun String?.ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Button(onClick = { }) {
-                    Text(text = "SS1 i lokale 113")
+                Button(
+                    onClick = {}) {
+                    Text(text = "SS1 i lokale 113", color = Color.Red)
                 }
             }
         }
@@ -186,46 +164,64 @@ fun String?.ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Button(onClick = { }) {
-                    Text(text = "SS3 i lokale 106")
-                }
+                Button(
+                    onClick = { },
+                ) {
+                    Text(text = "SS2 i lokale 106", color = Color.Red)
 
+                }
             }
+
         }
     }
-
-     */
-
-
 }
 
+
 @Composable
-fun SessionScreen(name: String?) {
-    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-        Text(text = "vi er ommet til næste side")
+fun SessionScreen(navController: NavController) {
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(text = "SESSION")
+        Spacer(modifier = Modifier.width(40.dp))
+        Text(text = "For valgt udstyr")
     }
+    Spacer(modifier = Modifier.height(40.dp))
 
     Column() {
         Row() {
-
-            //kode efter onclick skal også ændres men ved ikke helt hvad den skal ændres til det er nok noget som kan hente fra database
-            Button(onClick = { }) {
-                //der skal nok være en kode som henter fra database
+            Button(onClick = {}) {
+                Text(text = "START SESSION")
                 Spacer(modifier = Modifier.width(40.dp))
-                Image(
-                    painter = painterResource((R.drawable.sarastedy)),
-                    contentDescription = "Equipment",
-                    modifier = Modifier
-                        .size(50.dp)
+                Spacer(modifier = Modifier.height(60.dp))
+            }
+            Column() {
+                Row() {
 
-                )
-                Text(text = "Sara Stedy")
+                    Button(onClick = {}) {
+                        Text(text = "STOP SESSION")
+                        Spacer(modifier = Modifier.width(40.dp))
+                        Spacer(modifier = Modifier.height(60.dp))
+                        Spacer(modifier = Modifier.align(Alignment.CenterVertically))
+                    }
+                }
+            }
+            Column() {
+                Row() {
+                    //kode efter onclick skal også ændres men ved ikke helt hvad den skal ændres til det er nok noget som kan hente fra database
+                    Button(onClick = { navController.popBackStack() }) {
+                        //der skal nok være en kode som henter fra database
+                        Spacer(modifier = Modifier.width(40.dp))
+                        Text(text = "Sara Stedy")
+                    }
 
+
+                }
             }
         }
 
     }
 }
+
 
 
 

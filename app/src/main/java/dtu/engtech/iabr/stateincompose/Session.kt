@@ -9,16 +9,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-
+/*
 sealed class Session
 
-/*
+
 @Composable
-fun SessionScreen(name: String?) {
+fun String?.SessionScreen() {
     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
         Text(text = "vi er ommet til næste side")
     }
 
+    Navigation()
     Column() {
         Row() {
 
@@ -40,6 +41,7 @@ fun SessionScreen(name: String?) {
 
     }
 }
+
 
  */
 

@@ -12,7 +12,7 @@ fun EquipmentCardList(
     list: List<Equipment>,
     modifier: Modifier = Modifier
 ) {
-    Log.d(Constants.FIREBASETAG, "EquipmentCardList size: ${list.size}")
+  //  Log.d(Constants.FIREBASETAG, "EquipmentCardList size: ${list.size}")
     LazyColumn(
         modifier = modifier
     ) {

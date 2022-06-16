@@ -16,12 +16,12 @@ fun EquipmentScreen(
     equipmentViewModel: EquipmentViewModel = viewModel(),
 ) {
 
-        EquipmentCardList(
-            list = equipmentViewModel.equipmentRepository.equipment
-        )
+    EquipmentCardList(
+        list = equipmentViewModel.equipmentRepository.equipment
+    )
 
 
-    }
+}
 
 
 

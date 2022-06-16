@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class EquipmentViewModel : ViewModel() {
     //var staffRepository = StaffRepositoryMock()
 
-    var equipmentRepository = EquipmentRepositoryMock()
+    var equipmentRepository = EquipmentRepositoryFirestore()
 
     private var _equipment = equipmentRepository.equipment.toMutableStateList()
     val equipment: List<Equipment>
@@ -17,12 +17,17 @@ class EquipmentViewModel : ViewModel() {
         equipmentRepository.getEquipment()
     }
 
-    fun addEquipment(){
-        equipmentRepository.equipment.add(Equipment("Joe Tester", "V2.02"))
-    }
-
-    fun getLocation(locationID: String){
-      //  equipmentRepository.getEquipment(locationID)
-    }
+   /* fun getEquipment() {
+        equipmentRepository.getEquipment()
+    }*/
 }
+
+  /*  fun addEquipment(){
+        equipmentRepository.equipment.add(Equipment("Joe Tester", "V2.02"))
+    }*/
+
+   // fun getLocation(locationID: String){
+      //  equipmentRepository.getEquipment(locationID)
+
+
 

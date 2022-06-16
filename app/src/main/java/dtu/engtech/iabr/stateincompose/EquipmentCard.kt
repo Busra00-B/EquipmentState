@@ -11,8 +11,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun EquipmentCard(
-    equipment: Equipment,
-    modifier: Modifier = Modifier
+    equipment: Equipment
 ) {
     Row(
         modifier = Modifier

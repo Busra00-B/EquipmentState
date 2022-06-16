@@ -19,6 +19,7 @@ class EquipmentRepositoryFirestore: EquipmentRepository {
                 if (snapshot != null) {
                     equipment = snapshot.toObjects(Equipment::class.java).toMutableStateList()
                     Log.d(Constants.FIREBASETAG, "Current data size: ${equipment.size}")
+                    Log.d(Constants.FIREBASETAG, "Udstyr: ${equipment}")
                     logEquipment()
 
                 } else {

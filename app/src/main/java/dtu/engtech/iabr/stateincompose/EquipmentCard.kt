@@ -14,9 +14,13 @@ fun EquipmentCard(
     equipment: Equipment,
     modifier: Modifier = Modifier
 ) {
-    Row(modifier = Modifier.padding(all = 8.dp)) {
-         Image(
-             painter = painterResource((R.drawable.bil)),
+    Row(
+        modifier = Modifier
+            .padding(all = 8.dp)
+            .fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource((R.drawable.bil)),
             contentDescription = "Equipment",
             modifier = Modifier
                 .size(50.dp)

@@ -27,9 +27,35 @@ class EquipmentRepositoryFirestore: EquipmentRepository {
             }
     }
 
-    fun logEquipment(){
-        for(equipmentMember in equipment) {
+
+
+    fun logEquipment() {
+        for (equipmentMember in equipment) {
             Log.d(Constants.FIREBASETAG, "Member: $equipmentMember")
         }
     }
+
+/*
+    //kode tillocation
+    var location = mutableListOf<Equipment>().toMutableStateList()
+
+    fun getLocation(locationID: String) {
+        val docRef = FirebaseFirestore.getInstance().collection(Constants.EQUIPMENT)
+        docRef.whereEqualTo(Constants.BEACONTAG, locationID)
+            .get()
+            .addOnSuccessListener { documents ->
+                location = documents.toObjects(Equipment::class.java).toMutableStateList()
+                for (document in documents) {
+                    //Log.d(FirestoreBeaconConstants.FIREBASELOGTAG, "Number of documents => ${documents.size()}")
+                    Log.d(Constants.FIREBASETAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(Constants.FIREBASETAG, "Error getting documents: ", exception)
+            }
+    }
+
+ */
 }
+
+

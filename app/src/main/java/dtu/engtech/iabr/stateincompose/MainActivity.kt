@@ -23,7 +23,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     EquipmentScreen()
-                    Navigation()
+
+                    /*Navigation()
+
+                     */
 
                 }
 

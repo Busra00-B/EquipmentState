@@ -16,10 +16,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.modifier.modifierLocalOf
+import androidx.compose.ui.text.font.FontWeight
+import dtu.engtech.iabr.stateincompose.ui.theme.Purple500
+
 
 
 @Composable
@@ -48,8 +53,8 @@ fun MainScreen(navController: NavController) {
     var text by remember {
         mutableStateOf("")
     }
-    Column() {
-        Text(text = "Find udstyr")
+    Column(verticalArrangement = Arrangement.Center) {
+        Text(text = "Find udstyr", fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(20.dp))
 
     }
@@ -79,35 +84,55 @@ fun MainScreen(navController: NavController) {
         ) {
             Text(text = "Søg")
         }
+        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = {
+                navController.navigate("valgtudstyr")
+            },
+            modifier = Modifier.align(Alignment.End)
+        ) {
+            Text(text = "Næste")
+        }
 
 
     }
 }
 
+
 @Composable
 fun ValgteUdstyr(navController: NavController) {
 
 
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 50.dp)
+    ) {
         //kode til valgte udstyr
 
-        Row(modifier = Modifier.padding(all = 8.dp)) {
-            Text(text = "Valgte udstyr")
+        Row {
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text = "Valgte udstyr", fontWeight = FontWeight.Bold)
 
         }
 
-        Column() {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+        ) {
             Row() {
 
                 //kode efter onclick skal også ændres men ved ikke helt hvad den skal ændres til det er nok noget som kan hente fra database
                 Button(onClick = { }) {
                     //der skal nok være en kode som henter fra database
-                    Spacer(modifier = Modifier.width(40.dp))
                     Image(
                         painter = painterResource((R.drawable.sarastedy)),
                         contentDescription = "Equipment",
                         modifier = Modifier
-                            .size(50.dp)
+                            .size(40.dp)
 
                     )
                     Text(text = "Sara Stedy")
@@ -119,7 +144,7 @@ fun ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Text(text = "LEDIGE ENHEDER:")
+                Text(text = "LEDIGE ENHEDER:", fontWeight = FontWeight.Bold)
             }
         }
 
@@ -147,7 +172,7 @@ fun ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
-                Text(text = "OPTAGET ENDHEDER:")
+                Text(text = "OPTAGET ENDHEDER:", fontWeight = FontWeight.Bold)
             }
         }
 
@@ -155,7 +180,8 @@ fun ValgteUdstyr(navController: NavController) {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
                 Button(
-                    onClick = {}) {
+                    onClick = {}
+                ) {
                     Text(text = "SS1 i lokale 113", color = Color.Red)
                 }
             }
@@ -164,63 +190,112 @@ fun ValgteUdstyr(navController: NavController) {
         Column {
             Row {
                 Spacer(modifier = Modifier.width(40.dp))
+
                 Button(
-                    onClick = { },
+                    onClick = { }
                 ) {
                     Text(text = "SS2 i lokale 106", color = Color.Red)
 
                 }
             }
-
+        }
+        Column() {
+            Row() {
+                Button(onClick = { navController.popBackStack() })
+                {
+                    //der skal nok være en kode som henter fra database
+                    Text(text = "Tilbage")
+                }
+            }
         }
     }
+
 }
+
+
 
 
 @Composable
 fun SessionScreen(navController: NavController) {
 
-    Column(modifier = Modifier.fillMaxSize()) {
-        Text(text = "SESSION")
-        Spacer(modifier = Modifier.width(40.dp))
-        Text(text = "For valgt udstyr")
-    }
-    Spacer(modifier = Modifier.height(40.dp))
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 50.dp)
+    ) {
+        Row(modifier = Modifier.padding(all = 8.dp)) {
 
-    Column() {
-        Row() {
-            Button(onClick = {}) {
-                Text(text = "START SESSION")
-                Spacer(modifier = Modifier.width(40.dp))
-                Spacer(modifier = Modifier.height(60.dp))
+            Text(text = "SESSION", fontWeight = FontWeight.Bold)
+            Spacer(modifier = Modifier.width(40.dp))
+
+        }
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+        ) {
+
+            Row() {
+                Text(text = "For valgt udstyr", color = Purple500)
             }
-            Column() {
-                Row() {
+        }
 
-                    Button(onClick = {}) {
-                        Text(text = "STOP SESSION")
-                        Spacer(modifier = Modifier.width(40.dp))
-                        Spacer(modifier = Modifier.height(60.dp))
-                        Spacer(modifier = Modifier.align(Alignment.CenterVertically))
-                    }
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+        ) {
+            Row() {
+                //der skal skrives en kode her som giver databasen besked på at udstyret nu er opdateret.
+                Button(onClick = {})
+                {
+                    Text(text = "START SESSION")
                 }
             }
-            Column() {
-                Row() {
-                    //kode efter onclick skal også ændres men ved ikke helt hvad den skal ændres til det er nok noget som kan hente fra database
-                    Button(onClick = { navController.popBackStack() }) {
-                        //der skal nok være en kode som henter fra database
-                        Spacer(modifier = Modifier.width(40.dp))
-                        Text(text = "Sara Stedy")
-                    }
+        }
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+        ) {
+            Row() {
 
-
+                Button(onClick = {}) {
+                    Text(text = "STOP SESSION")
+                    Spacer(modifier = Modifier.align(Alignment.CenterVertically))
                 }
+            }
+        }
+        Column(
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+        ) {
+            Row() {
+                //kode efter onclick skal også ændres men ved ikke helt hvad den skal ændres til det er nok noget som kan hente fra database
+                Button(onClick = { navController.popBackStack() })
+                {
+                    //der skal nok være en kode som henter fra database
+                    Text(text = "Tilbage")
+                }
+
+
             }
         }
 
     }
 }
+
+
+
+
 
 
 

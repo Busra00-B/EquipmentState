@@ -58,16 +58,30 @@ fun Navigation() {
 
 @Composable
 fun MainScreen(navController: NavController) {
-    /*
     var text by remember {
         mutableStateOf("")
     }
-    Column() {
-        Text(text = "Find udstyr", fontWeight = FontWeight.Bold)
-        Spacer(modifier = Modifier.height(20.dp))
 
-    }
+    Column {
+        Spacer(modifier = Modifier.height(50.dp))
+        Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
 
+
+            Button(onClick = {}, colors = ButtonDefaults.buttonColors(backgroundColor = White)) {
+                Image(
+                    painter = painterResource((R.drawable.findit)),
+                    contentDescription = "Findit",
+                    modifier = Modifier
+                        .size(90.dp)
+
+
+                )
+            }
+            Text(text = "Findit", fontWeight = FontWeight.Bold, fontSize = 40.sp)
+            Spacer(modifier = Modifier.height(20.dp))
+        }
+
+/*
 
     Column(
         modifier = Modifier
@@ -97,20 +111,43 @@ fun MainScreen(navController: NavController) {
         EquipmentScreen()
         */
 
-    Column() {
-        Button(
-            onClick = {
-                navController.navigate("valgtudstyr")
-            },
-            modifier = Modifier.align(Alignment.End)
-        )
-        {
-            Text(text = "Næste")
-        }
+        Spacer(modifier = Modifier.height(90.dp))
+        //denne del skal anna kode
+        /*
+   Text(text = "Intialer", fontSize = 20.sp, fontWeight = Bold)
+   TextField(
+       value = text,
+       onValueChange = {
+           text = it
+       },
+       modifier = Modifier.fillMaxWidth()
+
+
+   )
+
+   Spacer(modifier = Modifier.height(90.dp))
+   Text(text = "Kodeord", fontSize = 20.sp, fontWeight = Bold)
+   TextField(
+       value = text,
+       onValueChange = {
+           text = it
+       },
+       modifier = Modifier.fillMaxWidth()
+   )
+   Spacer(modifier = Modifier.height(40.dp))
+   Button(
+       onClick = { navController.navigate("Valgtudstyr") },
+       modifier = Modifier.align(Alignment.End)
+   ) {
+       Text(text = "Login")
+
+   }
+
+         */
+
     }
-
-
 }
+
 
 //Valgtudstyr er blevet til main
 @Composable
@@ -189,13 +226,13 @@ fun ValgteUdstyr(navController: NavController) {
         //kode til valgte udstyr
 
         /*
-        Row {
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(text = "Valgte udstyr", fontWeight = FontWeight.Bold)
+    Row {
+        Spacer(modifier = Modifier.width(8.dp))
+        Text(text = "Valgte udstyr", fontWeight = FontWeight.Bold)
 
-        }
+    }
 
-         */
+     */
 
 
     }
@@ -381,6 +418,7 @@ fun SessionScreen(navController: NavController) {
         }
     }
 }
+
 
 
 

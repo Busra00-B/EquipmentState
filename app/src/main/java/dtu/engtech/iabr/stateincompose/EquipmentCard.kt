@@ -23,7 +23,7 @@ fun EquipmentCard(
             .fillMaxSize()
     ) {
         Image(
-            painter = painterResource((R.drawable.bil)),
+            painter = painterResource((R.drawable.findit)),
             contentDescription = "Equipment",
             modifier = Modifier
                 .size(50.dp)

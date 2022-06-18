@@ -2,9 +2,11 @@ package dtu.engtech.iabr.stateincompose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
+import androidx.compose.material.Checkbox
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -12,7 +14,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun EquipmentCard(
     equipment: Equipment
+
 ) {
+
     Row(
         modifier = Modifier
             .padding(all = 8.dp)
@@ -31,6 +35,7 @@ fun EquipmentCard(
             Text(
                 text = equipment?.name ?: ""
             )
+
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = equipment?.location ?: "",
@@ -38,8 +43,13 @@ fun EquipmentCard(
                 style = MaterialTheme.typography.body2
             )
         }
+
     }
 }
+
+
+
+
 
 
 

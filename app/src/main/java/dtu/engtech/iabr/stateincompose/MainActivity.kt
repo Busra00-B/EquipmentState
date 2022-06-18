@@ -11,8 +11,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import dtu.engtech.iabr.stateincompose.ui.theme.StateInComposeTheme
 
 
-
-
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,11 +22,12 @@ class MainActivity : ComponentActivity() {
                     //modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    EquipmentScreen()
-
-                    /*Navigation()
+                    /*EquipmentScreen()
 
                      */
+
+                    Navigation()
+
 
                 }
 

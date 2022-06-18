@@ -1,18 +1,24 @@
 package dtu.engtech.iabr.stateincompose
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+
 object EquipmentData {
     val equipmentSamples = listOf(
         Equipment(
-            "Ian Bridgwood",
+            "Sara Stedy",
             "X.2.51"
         ),
         Equipment(
-            "John Aasted Sørensen",
+            "Gulvlift",
             "X.2.54"
         ),
         Equipment(
-            "Henrik Bechmann",
+            "Stålift",
             "X.1.50"
         )
     )
 }
+

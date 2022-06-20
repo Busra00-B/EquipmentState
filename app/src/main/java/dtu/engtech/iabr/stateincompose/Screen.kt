@@ -12,6 +12,7 @@ sealed class Screen(val route: String){
                 append("/$arg")
             }
         }
+        //hej med dig - dette er en test
     }
 }
 

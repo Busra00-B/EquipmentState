@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun EquipmentCard(
@@ -33,12 +34,12 @@ fun EquipmentCard(
         Spacer(modifier = Modifier.width(8.dp))
         Column() {
             Text(
-                text = equipment?.name ?: ""
+                text = equipment?.name ?: "", fontSize = 20.sp
             )
 
             Spacer(modifier = Modifier.height(4.dp))
             Text(
-                text = equipment?.location ?: "",
+                text = equipment?.location ?: "", fontSize = 20.sp,
                 modifier = Modifier.padding(all = 4.dp),
                 style = MaterialTheme.typography.body2
             )

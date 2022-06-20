@@ -30,6 +30,7 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.leanback.widget.SpeechRecognitionCallback
 import dtu.engtech.iabr.stateincompose.ui.theme.Purple500
@@ -61,89 +62,103 @@ fun MainScreen(navController: NavController) {
     var text by remember {
         mutableStateOf("")
     }
+    var text2 by remember {
+        mutableStateOf("")
+    }
 
-    Column {
-        Spacer(modifier = Modifier.height(50.dp))
-        Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-
-
-            Button(onClick = {}, colors = ButtonDefaults.buttonColors(backgroundColor = White)) {
-                Image(
-                    painter = painterResource((R.drawable.findit)),
-                    contentDescription = "Findit",
-                    modifier = Modifier
-                        .size(90.dp)
-
-
-                )
-            }
+    Column(
+        modifier = Modifier.padding(40.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    )
+    {
+        //Spacer(modifier = Modifier.height(50.dp))
+        Row(modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding()) {
+            Image(
+                painter = painterResource((R.drawable.findit)),
+                contentDescription = "Findit",
+                modifier = Modifier
+                    .size(90.dp)
+                    .height(20.dp)
+            )
             Text(text = "Findit", fontWeight = FontWeight.Bold, fontSize = 40.sp)
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(50.dp))
         }
 
-/*
+    }
+
+
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .padding(horizontal = 50.dp)
-    ) {
+    )
+    {
+
+
+        /*
+            Spacer(modifier = Modifier.height(40.dp))
+            TextField(
+                value = text,
+                onValueChange = {
+                    text = it
+                },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+            Button(
+                onClick = {
+                    navController.navigate("valgtudstyr")
+                },
+                modifier = Modifier.align(Alignment.End)
+            ) {
+                Text(text = "Søg")
+            }
+
+         */
         Spacer(modifier = Modifier.height(40.dp))
+        /*
+            EquipmentScreen()
+
+             */
+
+
+        Spacer(modifier = Modifier.height(90.dp))
+        //denne del skal anna kode
+
+        Text(text = "Intialer", fontSize = 20.sp, fontWeight = Bold)
         TextField(
             value = text,
             onValueChange = {
                 text = it
             },
             modifier = Modifier.fillMaxWidth()
+
+
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(
-            onClick = {
-                navController.navigate("valgtudstyr")
+        Spacer(modifier = Modifier.height(90.dp))
+        Text(text = "Kodeord", fontSize = 20.sp, fontWeight = Bold)
+        TextField(
+            value = text2,
+            onValueChange = {
+                text2 = it
             },
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(40.dp))
+        Button(
+            onClick = { navController.navigate("Valgtudstyr") },
             modifier = Modifier.align(Alignment.End)
         ) {
-            Text(text = "Søg")
+            Text(text = "Login")
+
         }
-        Spacer(modifier = Modifier.height(8.dp))
-        EquipmentScreen()
-        */
 
-        Spacer(modifier = Modifier.height(90.dp))
-        //denne del skal anna kode
-        /*
-   Text(text = "Intialer", fontSize = 20.sp, fontWeight = Bold)
-   TextField(
-       value = text,
-       onValueChange = {
-           text = it
-       },
-       modifier = Modifier.fillMaxWidth()
-
-
-   )
-
-   Spacer(modifier = Modifier.height(90.dp))
-   Text(text = "Kodeord", fontSize = 20.sp, fontWeight = Bold)
-   TextField(
-       value = text,
-       onValueChange = {
-           text = it
-       },
-       modifier = Modifier.fillMaxWidth()
-   )
-   Spacer(modifier = Modifier.height(40.dp))
-   Button(
-       onClick = { navController.navigate("Valgtudstyr") },
-       modifier = Modifier.align(Alignment.End)
-   ) {
-       Text(text = "Login")
-
-   }
-
-         */
 
     }
 }
@@ -215,121 +230,18 @@ fun ValgteUdstyr(navController: NavController) {
         }
 
     }
-
-
-    Column(
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 50.dp)
-    ) {
-        //kode til valgte udstyr
-
-        /*
-    Row {
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(text = "Valgte udstyr", fontWeight = FontWeight.Bold)
-
-    }
-
-     */
-
-
-    }
 }
-
-
-/*
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-        Text(text = "LEDIGE ENHEDER:", fontWeight = FontWeight.Bold)
-    }
-}
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-        Button(onClick = { navController.navigate("session") }) {
-            Text(text = "SS3 i lokale 111")
-        }
-    }
-}
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-        Button(
-            onClick = { navController.navigate("session") }) {
-            Text(text = "SS4 i lokale 109")
-        }
-    }
-}
-
-
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-        Text(text = "OPTAGET ENDHEDER:", fontWeight = FontWeight.Bold)
-    }
-}
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-        Button(
-            onClick = {}
-        ) {
-            Text(text = "SS1 i lokale 113", color = Color.Red)
-        }
-    }
-}
-
-Column {
-    Row {
-        Spacer(modifier = Modifier.width(40.dp))
-
-        Button(
-            onClick = { }
-        ) {
-            Text(text = "SS2 i lokale 106", color = Color.Red)
-
-        }
-    }
-}
-
- */
-/*
-Column() {
-    Button(
-        onClick = {
-            navController.popBackStack()
-        },
-        modifier = Modifier.align(Alignment.End)
-    )
-    {
-        Text(text = "Tilbage")
-    }
-}
-
- */
-
-
-
-
 
 
 @Composable
 fun SessionScreen(navController: NavController) {
 
-    Spacer(modifier = Modifier.height(10.dp))
 
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxWidth()
+            .fillMaxSize()
             .padding(horizontal = 50.dp)
     ) {
         Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
@@ -366,7 +278,7 @@ fun SessionScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(20.dp))
 
         Column(
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 50.dp)
@@ -382,7 +294,7 @@ fun SessionScreen(navController: NavController) {
             }
             Spacer(modifier = Modifier.height(20.dp))
             Column(
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 50.dp)
@@ -399,7 +311,7 @@ fun SessionScreen(navController: NavController) {
             }
             Spacer(modifier = Modifier.height(20.dp))
             Column(
-                verticalArrangement = Arrangement.Center,
+                verticalArrangement = Arrangement.spacedBy(8.dp),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 50.dp)
@@ -418,6 +330,7 @@ fun SessionScreen(navController: NavController) {
         }
     }
 }
+
 
 
 

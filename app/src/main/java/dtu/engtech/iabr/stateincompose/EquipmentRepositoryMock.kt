@@ -10,3 +10,4 @@ class EquipmentRepositoryMock: EquipmentRepository {
     }
 }
 
+

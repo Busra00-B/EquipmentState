@@ -72,9 +72,11 @@ fun MainScreen(navController: NavController) {
     )
     {
         //Spacer(modifier = Modifier.height(50.dp))
-        Row(modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding()) {
+        Row(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding()
+        ) {
             Image(
                 painter = painterResource((R.drawable.findit)),
                 contentDescription = "Findit",
